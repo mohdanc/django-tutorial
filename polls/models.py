@@ -1,11 +1,14 @@
 '''Polls models'''
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Question(models.Model):
     '''Question model'''
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField(verbose_name="date published")
+
+    questions_qs = models.Manager()
 
     def was_published_recently(self):
         '''aaa'''
